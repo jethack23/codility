@@ -1,16 +1,12 @@
-def solution(N):
-    max_len = 0
-    length = 0
-    remainder = 0
-    while remainder != 1:
-        remainder = N%2
-        N //=2
-    while N>0:
-        remainder = N%2
-        N //= 2
-        if remainder == 1:
-            max_len = max(max_len, length)
-            length = 0
-        else:
-            length += 1
-    return max_len
+def solution(n):
+    while 0 == n % 2:
+        n //= 2
+    rst = 0
+    while n > 1:
+        temp_rst = 0
+        n //= 2
+        while 0 == n % 2:
+            n //= 2
+            temp_rst += 1
+        rst = max(rst, temp_rst)
+    return rst
